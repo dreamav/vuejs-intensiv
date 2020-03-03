@@ -15,7 +15,10 @@
             <hr>
             <input type="text" v-model="lastName">
             <hr>
-            <h2>Hello, {{ fullName() }}</h2>
+            <h2>Hello, {{ fullName }}</h2>
+            <hr>
+            <button class="btn btn-success" @click="showText=!showText">ToggleText</button>
+            <p v-show="showText">Text </p>
         </div>
     </div>
     <script>
@@ -24,9 +27,11 @@
             data:{
                 firstName: '',
                 lastName: '',
+                showText: true
             },
-            methods:{
+            computed:{
                 fullName(){
+                    console.log('render text');
                     return this.firstName + ' ' + this.lastName
                 }
             }
