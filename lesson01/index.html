@@ -16,14 +16,15 @@
                 v-bind:value="name"
                 >
             <hr>
-            <h2>Hello, {{ name }}</h2>
+            <h2 v-if="showName">Hello, {{ name }}</h2>
         </div>
     </div>
     <script>
         new Vue({
             el: '.sample',
             data:{
-                name: "Dmitry"
+                name: "Dmitry",
+                showName: false
             }
         })
     </script>
