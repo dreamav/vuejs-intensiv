@@ -16,13 +16,24 @@
             <ul>
                 <li v-for="(number,index) in numbers" v-on:mouseenter="$event.target.style.color = 'red'">{{index}} - {{number}}</li>
             </ul>
+            <hr>
+            <table class="table table-bordered">
+                <tr v-for="(value,key) in info">
+                    <td>{{key}}</td>
+                    <td>{{value}}</td>
+                </tr>
+            </table>
         </div>
     </div>
     <script>
         let sample = new Vue({
             el: '.sample',
             data:{
-                numbers:[]
+                numbers:[],
+                info:{
+                    name:'Dmitriy',
+                    email:'reloved@gmail.com'
+                }
             },
             methods:{
                 addNumber(){
