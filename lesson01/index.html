@@ -13,11 +13,26 @@
         <div class="sample">
             <input type="text">
             <hr>
-            <h2>Hello, </h2>
+            <h2>Hello, {{name}}</h2>
+        </div>
+        <div class="sample">
+            <input type="text">
+            <hr>
+            <h2>Hello, {{name}}</h2>
+        </div>
+        <div class="sample">
+            <input type="text">
+            <hr>
+            <h2>Hello, {{name}}</h2>
         </div>
     </div>
     <script>
-
+        new Vue({
+            el: '.sample',
+            data:{
+                name: "Dmitry"
+            }
+        })
     </script>
 </body>
 </html>
