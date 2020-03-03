@@ -14,7 +14,7 @@
             <button class="btn btn-success" @click="addNumber">Add number</button>
             <button class="btn btn-primary" @click="sortNumbers">Sort</button>
             <ul>
-                <li v-for="number in numbers">{{number}}</li>
+                <li v-for="(number,index) in numbers" v-on:mouseenter="$event.target.style.color = 'red'">{{index}} - {{number}}</li>
             </ul>
         </div>
     </div>
