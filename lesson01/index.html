@@ -12,6 +12,7 @@
     <div class="wrapper">
         <div class="sample">
             <button class="btn btn-success" @click="addNumber">Add number</button>
+            <button class="btn btn-primary" @click="sortNumbers">Sort</button>
             <ul>
                 <li v-for="number in numbers">{{number}}</li>
             </ul>
@@ -26,6 +27,11 @@
             methods:{
                 addNumber(){
                     this.numbers.push(Math.floor(Math.random()*10));
+                },
+                sortNumbers(){
+                    this.numbers.sort((a,b)=>{
+                        return a > b ? 1 : -1;
+                    })
                 }
             }
         });
