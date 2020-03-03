@@ -15,24 +15,44 @@
             <hr>
             <input type="text" v-model="lastName">
             <hr>
-            <h2>Hello, {{ fullName }}</h2>
+            <label for="">discount code</label>
+            <input type="text" v-model="promo">
             <hr>
-            <button class="btn btn-success" @click="showText=!showText">ToggleText</button>
-            <p v-show="showText">Text </p>
+            <h2 v-show="showText">Your discount: {{sale}}%</h2>
         </div>
     </div>
     <script>
+        function getDiscount(code, callback){
+            let codes = {
+                newYear: 10,
+                some: 20
+            };
+
+            let sale = (codes[code] !== undefined) ? codes[code] : 0;
+
+            setTimeout( () => {
+                callback(sale);
+            }, 1000 );
+        }
         let sample = new Vue({
             el: '.sample',
             data:{
                 firstName: '',
                 lastName: '',
+                promo:'',
+                sale:0,
                 showText: true
             },
             computed:{
                 fullName(){
-                    console.log('render text');
                     return this.firstName + ' ' + this.lastName
+                }
+            },
+            watch:{
+                promo(){
+                    getDiscount(this.promo, (sale) => {
+                        this.sale = sale;
+                    })
                 }
             }
         });
