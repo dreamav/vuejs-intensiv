@@ -11,29 +11,20 @@
 <body>
     <div class="wrapper">
         <div class="sample">
-            <input type="text"
-                v-on:input="name = $event.target.value"
-                v-bind:value="name"
-                >
+            <input type="text" v-model="firstName">
             <hr>
-            <button class="btn btn-success" v-on:click="showName=!showName">ToggleName</button>
-            <button class="btn btn-primary" v-on:click="toggleName">ToggleName2</button>
+            <input type="text" v-model="lastName">
             <hr>
-            <h2 v-if="showName">Hello, {{ name }}</h2>
+            <h2>Hello, {{ firstName + ' ' + lastName }}</h2>
         </div>
     </div>
     <script>
         let sample = new Vue({
             el: '.sample',
             data:{
-                name: "Dmitry",
-                showName: false
+                firstName: '',
+                lastName: '',
             },
-            methods:{
-                toggleName(){
-                    this.showName=!this.showName
-                }
-            }
         });
 
     </script>
