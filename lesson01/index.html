@@ -18,7 +18,8 @@
             </ul>
             <hr>
             <table class="table table-bordered">
-                <tr v-for="(value,key) in info">
+                <tr v-for="(value,key,i) in info">
+                    <td>{{i}}</td>
                     <td>{{key}}</td>
                     <td>{{value}}</td>
                 </tr>
