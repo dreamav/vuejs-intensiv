@@ -15,8 +15,8 @@
             <button class="btn btn-primary" @click="sortNumbers">Sort</button>
             <ul>
                 <li v-for="(number,index) in numbers"
-                    @mouseenter="onMouseEnter"
-                    @mouseleave="onMouseLeave">
+                    @mouseenter="onMouseEnter($event,index)"
+                    @mouseleave="onMouseLeave($event,index)">
                         {{index}} - {{number}}
                 </li>
             </ul>
@@ -49,11 +49,15 @@
                         return a > b ? 1 : -1;
                     })
                 },
-                onMouseEnter(e){
-                    e.target.style.color = 'red'
+                onMouseEnter(e,index){
+                    if(index & 1){
+                        e.target.style.color = 'red'
+                    }
                 },
-                onMouseLeave(e){
-                    e.target.style.color = 'black'
+                onMouseLeave(e,index){
+                    if(index & 1){
+                        e.target.style.color = 'black'
+                    }
                 }
             }
         });
