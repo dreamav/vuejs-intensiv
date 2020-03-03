@@ -17,6 +17,7 @@
                 >
             <hr>
             <h2 v-if="showName">Hello, {{ name }}</h2>
+            <button class="btn btn-success" v-on:click="showName=!showName">ToggleName</button>
         </div>
     </div>
     <script>
@@ -28,7 +29,6 @@
             }
         });
 
-        console.log(sample);
     </script>
 </body>
 </html>
