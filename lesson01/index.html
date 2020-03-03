@@ -11,48 +11,21 @@
 <body>
     <div class="wrapper">
         <div class="sample">
-            <input type="text" v-model="firstName">
-            <hr>
-            <input type="text" v-model="lastName">
-            <hr>
-            <label for="">discount code</label>
-            <input type="text" v-model="promo">
-            <hr>
-            <h2 v-show="showText">Your discount: {{sale}}%</h2>
+            <button class="btn btn-success" @click="addNumber">Add number</button>
+            <ul>
+                <li v-for="number in numbers">{{number}}</li>
+            </ul>
         </div>
     </div>
     <script>
-        function getDiscount(code, callback){
-            let codes = {
-                newYear: 10,
-                some: 20
-            };
-
-            let sale = (codes[code] !== undefined) ? codes[code] : 0;
-
-            setTimeout( () => {
-                callback(sale);
-            }, 1000 );
-        }
         let sample = new Vue({
             el: '.sample',
             data:{
-                firstName: '',
-                lastName: '',
-                promo:'',
-                sale:0,
-                showText: true
+                numbers:[]
             },
-            computed:{
-                fullName(){
-                    return this.firstName + ' ' + this.lastName
-                }
-            },
-            watch:{
-                promo(){
-                    getDiscount(this.promo, (sale) => {
-                        this.sale = sale;
-                    })
+            methods:{
+                addNumber(){
+                    this.numbers.push(Math.floor(Math.random()*10));
                 }
             }
         });
