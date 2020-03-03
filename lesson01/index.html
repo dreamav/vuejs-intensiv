@@ -11,7 +11,10 @@
 <body>
     <div class="wrapper">
         <div class="sample">
-            <input type="text" v-model="name">
+            <input type="text"
+                v-on:input="name = $event.target.value"
+                v-bind:value="name"
+                >
             <hr>
             <h2>Hello, {{ name }}</h2>
         </div>
