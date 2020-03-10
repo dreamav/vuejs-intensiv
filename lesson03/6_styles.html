@@ -11,26 +11,19 @@
 <body>
 <div class="wrapper">
     <div class="sample">
-        <div class="alert" :class="divClassName">
+        <div class="alert" :style="properties">
             Some Text
         </div>
 
         <hr>
-        <table class="table" :class="flags">
-             <tr>
-                 <td>Title</td>
-                 <td>Some</td>
-                 <td>nz</td>
-             </tr>
-             <tr>
-                 <td>Title</td>
-                 <td>Some</td>
-                 <td>nz</td>
-             </tr>
-             <tr>
-                 <td>Title</td>
-                 <td>Some</td>
-                 <td>nz</td>
+        <table class="table table-bordered">
+             <tr v-for="(value,name) in properties">
+                 <td>{{name}}</td>
+                 <td>
+                    <input type="text"
+                           v-model="properties[name]"
+                           >
+                 </td>
              </tr>
          </table> 
     </div>
@@ -39,10 +32,13 @@
     new Vue({
         el: '.sample',
         data: {
-
+            properties: {
+                color: '#ff0',
+                backgroundColor: '#050'
+            },
         },
         computed:{
-            
+
         }
     });
 
