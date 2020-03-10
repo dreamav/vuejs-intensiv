@@ -28,6 +28,10 @@
 		bind(el, options){
 			let callback = (e) => {
 				options.value.call(this, e);
+
+				if(options.modifiers.prevent){
+					e.preventDefault();
+				}
 			}
 
 			el.addEventListener(options.arg, callback)
