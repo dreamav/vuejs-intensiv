@@ -7,11 +7,25 @@
     <link rel="stylesheet" href="css//bootstrap.min.css">
     <link href="css/styles.css" rel="stylesheet">
     <script src="js/vue.js"></script>
+    <style>
+        .my-info{
+            font-style: italic;
+        }
+
+        .my-warning{
+            font-size: 20px;
+        }
+
+        .table-some{
+            color: #fff;
+            background: #000;
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper">
     <div class="sample">
-        <div class="alert" :class="'alert-'+divClass">
+        <div class="alert" :class="divClassName">
             Some Text
         </div>
         <div class="form-check">
@@ -42,6 +56,14 @@
         data: {
             divClass:'info'
         },
+        computed:{
+            divClassName(){
+                return [
+                    'alert-' + this.divClass,
+                    'my-' + this.divClass
+                ]
+            }
+        }
     });
 
 </script>
