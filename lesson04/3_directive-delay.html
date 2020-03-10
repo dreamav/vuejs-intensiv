@@ -16,7 +16,7 @@
 			<h2>{{ clicks }}</h2>	
 			<hr>
 			<button class="btn btn-success"
-					v-ondelay:click.prevent.trim>
+					v-ondelay:click.prevent.trim="onClick">
 				Send
 			</button>
 		</form>
@@ -26,13 +26,27 @@
 
 	Vue.directive('ondelay', {
 		bind(el, options){
+			let callback = (e) => {
+				options.value.call(this, e);
+			}
+
+			el.addEventListener(options.arg, callback)
+
 			console.log(options);
+
 		}
 	});
 
 	new Vue({
 		el: '.sample',
-
+		data: {
+			clicks: 0
+		},
+		methods: {
+			onClick(){
+				this.clicks++;
+			}
+		}
 	});
 
 </script>
