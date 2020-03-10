@@ -20,6 +20,10 @@
             color: #fff;
             background: #000;
         }
+        .table-some{
+            color: #fff;
+            background: #000;
+        }
     </style>
 </head>
 <body>
@@ -28,33 +32,45 @@
         <div class="alert" :class="divClassName">
             Some Text
         </div>
-        <div class="form-check">
+        <div class="form-check" v-for="(flag,key) in flags">
             <label class="form-check-label">
-                <input type="radio" 
-                       class="form-check-input" 
-                       value="info"
-                       v-model='divClass'>
-                    Info
+                <input type="checkbox" 
+                       class="form-check-input"
+                       v-model='flags[key]'>
+                    {{key}}
                 </input>
             </label>
         </div>
-        <div class="form-check">
-            <label class="form-check-label">
-                <input type="radio" 
-                       class="form-check-input" 
-                       value="warning"
-                       v-model='divClass'>
-                    Warning
-                </input>
-            </label>
-        </div>
+        <hr>
+        <table class="table" :class="flags">
+             <tr>
+                 <td>Title</td>
+                 <td>Some</td>
+                 <td>nz</td>
+             </tr>
+             <tr>
+                 <td>Title</td>
+                 <td>Some</td>
+                 <td>nz</td>
+             </tr>
+             <tr>
+                 <td>Title</td>
+                 <td>Some</td>
+                 <td>nz</td>
+             </tr>
+         </table> 
     </div>
 </div>
 <script>
     new Vue({
         el: '.sample',
         data: {
-            divClass:'info'
+            divClass:'info',
+            flags: {
+                'table-bordered': false,
+                'table-hover': false,
+                'table-some': false
+            }
         },
         computed:{
             divClassName(){
