@@ -18,18 +18,30 @@
             <label class="form-check-label">
                 <input type="radio" 
                        class="form-check-input" 
-                       value="info">
-                    Primary
+                       value="info"
+                       v-model='divClass'>
+                    Info
                 </input>
             </label>
         </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" 
+                       class="form-check-input" 
+                       value="warning"
+                       v-model='divClass'>
+                    Warning
+                </input>
+            </label>
+        </div>
+        {{ divClass }}
     </div>
 </div>
 <script>
     new Vue({
         el: '.sample',
         data: {
-            
+            divClass:'info'
         },
     });
 
