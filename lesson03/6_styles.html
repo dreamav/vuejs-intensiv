@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <link rel="stylesheet" href="css//bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sample">
+        <div class="alert" :class="divClassName">
+            Some Text
+        </div>
+
+        <hr>
+        <table class="table" :class="flags">
+             <tr>
+                 <td>Title</td>
+                 <td>Some</td>
+                 <td>nz</td>
+             </tr>
+             <tr>
+                 <td>Title</td>
+                 <td>Some</td>
+                 <td>nz</td>
+             </tr>
+             <tr>
+                 <td>Title</td>
+                 <td>Some</td>
+                 <td>nz</td>
+             </tr>
+         </table> 
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '.sample',
+        data: {
+
+        },
+        computed:{
+            
+        }
+    });
+
+</script>
+</body>
+</html>
