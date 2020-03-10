@@ -12,13 +12,22 @@
 <body>
 <div class="wrapper">
 	<div class="sample">
-
+		<form>
+			<h2>{{ clicks }}</h2>	
+			<hr>
+			<button class="btn btn-success"
+					v-ondelay:click.prevent.trim>
+				Send
+			</button>
+		</form>
 	</div>
 </div>
 <script>
 
 	Vue.directive('ondelay', {
-
+		bind(el, options){
+			console.log(options);
+		}
 	});
 
 	new Vue({
