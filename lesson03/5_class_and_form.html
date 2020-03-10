@@ -11,7 +11,7 @@
 <body>
 <div class="wrapper">
     <div class="sample">
-        <div class="alert alert-info">
+        <div class="alert" :class="'alert-'+divClass">
             Some Text
         </div>
         <div class="form-check">
@@ -34,7 +34,6 @@
                 </input>
             </label>
         </div>
-        {{ divClass }}
     </div>
 </div>
 <script>
