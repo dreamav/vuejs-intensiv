@@ -11,7 +11,7 @@
 		bind(el, options){
 			let timer;
 			let interval = options.arg;
-			let max = false;
+			let max = Infinity;
 			let done = 0;
 
 			for(let name in options.modifiers){
@@ -27,19 +27,23 @@
 				done++;
 				options.value(el);
 
-				timer = setTimeout(
-					() => {
-						callback();
-					},
-					interval
-				)
+				if(done < max){
+					timer = setTimeout(() => {
+							callback();
+						}, interval);
+				}
 			}
 
-			
-
-			timer = setTimeout( () => {
+			if(done < max){
+				if(options.modifiers.run){
+					callback();
+				}
+				else{
+					timer = setTimeout(() => {
 						callback();
 					}, interval);
+				}
+			}
 		}
 	});
 
