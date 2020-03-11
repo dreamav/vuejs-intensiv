@@ -1,0 +1,24 @@
+<body>
+	<div class="sample">
+		<div v-timer:1000.5="onTimer">1</div>
+		<div v-timer:1000.5.run="onTimer">2</div>
+		<div v-timer:1000="onTimer">3</div>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.directive('timer', {
+		bind(el, options){
+
+
+		}
+	});
+
+	new Vue({
+		el: '.sample',
+		methods: {
+
+		}
+	});
+
+</script>
