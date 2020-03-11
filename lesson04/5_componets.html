@@ -12,19 +12,27 @@
 <body>
     <div class="wrapper">
         <div class="sample">
-        	<app-some></app-some>
+        	<app-some v-for="(elem, index) in values"
+        			  :key="index"
+        			  :min="elem.min"
+        			  :max="elem.max"
+        			  >
+        		
+        	</app-some>
         </div>
     </div>
 	<script>
 		Vue.component('app-some', {
+			props:['min','max'],
 			template:`
 				<div>
 					{{a}}
+					{{min}}, {{max}}
 				</div>
-			`,
+			`, 
 			data(){
 				return {
-					a: Math.random()
+					a: Math.floor( Math.random() * (this.max - this.min)+this.min )
 				}
 			}
 		});
@@ -32,6 +40,20 @@
 		new Vue({
 			el: '.sample',
 			data: {
+				values:[
+					{
+						min: 30,
+						max: 60
+					},
+					{
+						min: 5,
+						max: 10
+					},
+					{
+						min: 15,
+						max: 30
+					},
+				]
 
 			},
 			methods: {
