@@ -9,15 +9,24 @@
 <script>
 	Vue.directive('timer', {
 		bind(el, options){
+			let timer;
+			let interval = options.arg;
 
-
+			timer = setTimeout(
+				() => {
+					console.log(this)
+				},
+				interval
+			)
 		}
 	});
 
 	new Vue({
 		el: '.sample',
 		methods: {
-
+			onTimer(){
+				
+			}
 		}
 	});
 
