@@ -16,6 +16,7 @@
         			  :key="index"
         			  :min="elem.min"
         			  :max="elem.max"
+        			  @plusplus="onPlusPlus(index)"
         			  >
         		
         	</app-some>
@@ -33,7 +34,17 @@
 			`, 
 			data(){
 				return {
-					number: Math.floor( Math.random() * (this.max - this.min)+this.min )
+					/* number: Math.floor( Math.random() * (this.max - this.min)+this.min ) */
+				}
+			},
+			computed:{
+				number(){
+					return Math.floor( Math.random() * (this.max - this.min)+this.min )
+				}
+			},
+			methods:{
+				onClick(e){
+					this.$emit('plusplus')
 				}
 			}
 		});
@@ -58,7 +69,11 @@
 
 			},
 			methods: {
-
+				onPlusPlus(index){
+					this.values[index].min += 5;
+					this.values[index].max += 5;
+					console.log(this.values[index].min);
+				}
 			}
 		});
 
