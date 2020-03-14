@@ -14,19 +14,28 @@
 
 
 	<div class="sample">
-		<app-some 
-			:a="'true'"
+		<app-some
+			:a="'sdfsd'"
 		>
+
 		</app-some>
 	</div>
 
 
 
-	
+
 <script src="js/vue.js"></script>
 <script>
 	Vue.component('appSome', {
-
+		props: {
+			a: [String,Number]
+		},
+		template: `
+			<div>
+				<h2>{{ a }}</h2>
+				<hr>
+			</div>
+		`,
 	});
 
 	new Vue({
