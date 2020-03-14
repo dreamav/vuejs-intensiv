@@ -14,7 +14,10 @@
 
 
 	<div class="sample">
-		<app-ul></app-ul>
+		<button class="btn btn-primary" @click="ul = !ul">Toggle</button>
+		<hr>
+		<app-ul :items="list" v-if="ul"></app-ul>
+		<app-ol :items="list" v-else></app-ol>
 	</div>
 
 
@@ -22,9 +25,9 @@
 
 <script src="js/vue.js"></script>
 <script>
-	Vue.component('appSome', {
+	Vue.component('appUl', {
 		props: {
-			
+			items: null,
 		},
 		template: `
 			<ul>
@@ -32,6 +35,18 @@
 				{{item}}
 				</li>
 			</ul>
+		`,
+	});
+	Vue.component('appOl', {
+		props: {
+			items: null,
+		},
+		template: `
+			<ol>
+				<li v-for="item in items">
+				{{item}}
+				</li>
+			</ol>
 		`,
 	});
 
@@ -43,7 +58,8 @@
 				'Items',
 				'For',
 				'List'
-			]
+			],
+			ul: true
 		}
 	});
 
