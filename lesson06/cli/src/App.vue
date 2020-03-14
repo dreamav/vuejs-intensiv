@@ -1,5 +1,5 @@
 <template>
-	<div>1</div>
+	<app-input></app-input>
 </template>
 
 <script>
