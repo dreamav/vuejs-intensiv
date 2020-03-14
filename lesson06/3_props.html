@@ -15,7 +15,7 @@
 
 	<div class="sample">
 		<app-some
-			
+			:a = "1"
 		>
 
 		</app-some>
@@ -29,11 +29,8 @@
 	Vue.component('appSome', {
 		props: {
 			a: {
-				type: Object,
-				default(){
-					return {
-						a: 1
-					}
+				validator(val){
+					return val <= 10 && val >= 1;
 				}
 			}
 		},
