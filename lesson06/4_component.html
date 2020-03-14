@@ -13,11 +13,16 @@
 
 
 
-	<div class="sample">
+	<div class="sample container">
 		<button class="btn btn-primary" @click="ul = !ul">Toggle</button>
 		<hr>
-		<app-ul :items="list" v-if="ul"></app-ul>
-		<app-ol :items="list" v-else></app-ol>
+		<keep-alive>
+			<app-ul :items="list" v-if="ul"></app-ul>
+			<app-ol :items="list" :start="5" v-else></app-ol>
+		</keep-alive>
+		<keep-alive>
+			<component :is="listType" :items="list" :start="5"></component>
+		</keep-alive>
 	</div>
 
 
@@ -36,18 +41,25 @@
 				</li>
 			</ul>
 		`,
+		created(){
+			console.log('ul created');
+		}
 	});
 	Vue.component('appOl', {
 		props: {
 			items: null,
+			start: Number,
 		},
 		template: `
-			<ol>
+			<ol :start="start">
 				<li v-for="item in items">
 				{{item}}
 				</li>
 			</ol>
 		`,
+		created(){
+			console.log('ol created');
+		}
 	});
 
 	new Vue({
@@ -60,6 +72,11 @@
 				'List'
 			],
 			ul: true
+		},
+		computed: {
+			listType(){
+				return this.ul ? 'appUl' : 'appOl';
+			}
 		}
 	});
 
