@@ -15,7 +15,7 @@
 
 	<div class="sample">
 		<app-some
-			:a="1"
+			
 		>
 
 		</app-some>
@@ -29,8 +29,12 @@
 	Vue.component('appSome', {
 		props: {
 			a: {
-				type: Number,
-				required: true
+				type: Object,
+				default(){
+					return {
+						a: 1
+					}
+				}
 			}
 		},
 		template: `
