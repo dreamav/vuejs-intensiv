@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     del = require('del'),
+    browserSync = require('browser-sync'),
     webpack = require('webpack-stream');
 
 let isDev = true;
@@ -32,10 +33,24 @@ let webConfig = {
 
 function scripts() {
     return gulp.src('./src/main.js')
-        .pipe(webpack(webConfig))
-        .pipe(gulp.dest('./') )
+        .pipe( webpack(webConfig) )
+        .pipe( gulp.dest('./') )
 }
 gulp.task('scripts', scripts)
+
+gulp.task('browser-sync',function () {
+    browserSync({
+        proxy: {
+            target: "http://vue-lavrik.loc/",
+            ws: true
+        }
+    })
+});
+
+gulp.task('watch',['browser-sync','scripts'],function () {
+    gulp.watch('./src/**/*.vue',['scripts']);
+    gulp.watch('./src/**/*.js',['scripts']);
+});
 
 function clean(){
     return del("./dist");
