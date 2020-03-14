@@ -24,7 +24,10 @@ let webConfig = {
             },
         ]
     },
-   mode: isDev ? 'development' : 'production'
+    mode: isDev ? 'development' : 'production',
+    resolve: {
+        extensions: ['*', '.js', '.vue', '.json']
+    },
 }
 
 function scripts() {
