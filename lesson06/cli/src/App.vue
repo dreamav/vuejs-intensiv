@@ -102,3 +102,10 @@
 		}
 	}
 </script>
+
+<style scoped>
+	.wrapper{
+		max-width: 600px;
+		margin: 20px auto;
+	}
+</style>
