@@ -20,12 +20,10 @@
 		},
 		methods:{
 			onMinus(){
-				if(this.$store.state.cnt > 0){
-					this.$store.state.cnt--;
-				}
+				this.$store.commit('minus')
 			},
 			onPlus(){
-				this.$store.state.cnt++;
+				this.$store.commit('plus')
 			}
 		}
 	}
