@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <link rel="stylesheet" href="css//bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/vue.js"></script>
+</head>
+<body>
+   <div class="container">
+	   <div class="sample">
+			<button class="btn btn-primary" @click="show = !show">Toggle</button>
+			<transition name="boom" appear>
+				<div class="alert alert-success" v-if="show" key="success">
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+				</div>
+				<div class="alert alert-danger" v-else key="danger">
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+				</div>
+			</transition>
+		</div>
+	</div>
+<script>
+
+	new Vue({
+		el: '.sample',
+		data: {
+			show: true
+		}
+	});
+
+</script>
+
+<style>
+	.btn{
+		margin: 10px 0;
+	}
+	/* до начала анимации */
+	.boom-enter{ 
+
+	}
+	/* после того как елемент появляется, жив все время пока есть елемент */
+	.boom-enter-active{
+		animation: slideIn 0.5s;
+	}
+	/* после того как елемент появляется */
+	.boom-enter-to{
+		
+	}
+	.boom-leave{
+
+	}
+	.boom-leave-active{
+		animation: slideOut 0.5s;
+	}
+	.boom-leave-to{
+
+	}
+
+	@keyframes slideIn{
+		from{transform: translateX(-2000px);}
+		to{transform: translateX(0px);}
+	}
+
+	@keyframes slideOut{
+		from{transform: translateX(0px);}
+		to{transform: translateX(-2000px);}
+	}
+
+</style>
+
+
+
+</body>
+</html>
