@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <link rel="stylesheet" href="css//bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/vue.js"></script>
+</head>
+<body>
+   <div class="container">
+	   <div class="sample">
+			<button class="btn btn-primary" @click="show = !show">Toggle</button>
+			<transition mode="out-in">
+				<div class="alert alert-success" v-if="show" key="success">
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+				</div>
+				<div class="alert alert-danger" v-else key="danger">
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+				</div>
+			</transition>
+		</div>
+	</div>
+<script>
+
+	new Vue({
+		el: '.sample',
+		data: {
+			show: true
+		}
+	});
+
+</script>
+
+<style>
+	.btn{
+		margin: 10px 0;
+	}
+</style>
+
+
+
+</body>
+</html>
