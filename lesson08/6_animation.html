@@ -13,7 +13,7 @@
    <div class="container">
 	   <div class="sample">
 			<button class="btn btn-primary" @click="show = !show">Toggle</button>
-			<transition name="fade" appear>
+			<transition name="boom">
 				<div class="alert alert-success" v-show="show">
 					<div>Some text about some</div>
 					<div>Some text about some</div>
@@ -40,38 +40,36 @@
 		margin: 10px 0;
 	}
 	/* до начала анимации */
-	.fade-enter{ 
-		opacity: 0;
+	.boom-enter{ 
+
 	}
 	/* после того как елемент появляется, жив все время пока есть елемент */
-	.fade-enter-active{
-		transition: opacity 0.5s;
+	.boom-enter-active{
+		animation: slideIn 0.5s;
 	}
 	/* после того как елемент появляется */
-	.fade-enter-to{
+	.boom-enter-to{
 		
 	}
-	.fade-leave{
+	.boom-leave{
 
 	}
-	.fade-leave-active{
-		transition: opacity 0.5s;
+	.boom-leave-active{
+		animation: slideOut 0.5s;
 	}
-	.fade-leave-to{
-		opacity: 0;
+	.boom-leave-to{
+
 	}
 
-	/*
-	classList.add fade-enter (op: 0)
-	classList.add fade-enter-active (transition)
-	getComputedStyle[transition-duration] -> 0.5s
-		(:duration || transition-duration || animation-duration)
-	classList.remove fade-enter (op: 1)
-	classList.add fade-enter-to 
-	setTimout(transition-duration)
-		classList.remove fade-enter-active
-		classList.remove fade-enter-to
-	*/
+	@keyframes slideIn{
+		from{transform: translateX(-2000px);}
+		to{transform: translateX(0px);}
+	}
+
+	@keyframes slideOut{
+		from{transform: translateX(0px);}
+		to{transform: translateX(-2000px);}
+	}
 
 </style>
 
