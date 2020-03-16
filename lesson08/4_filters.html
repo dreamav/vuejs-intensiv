@@ -15,6 +15,8 @@
 			<button class="btn btn-primary" @click="show = !show">Toggle</button>
 			<div class="alert alert-warning" v-show="show">
 				{{ text }} <hr>
+				{{ text | length }}<hr>
+				{{ text | reverse | upper }}<hr>
 			</div>
 		</div>
 	</div>
@@ -25,6 +27,17 @@
 		data: {
 			show: true,
 			text: 'Some text'
+		},
+		filters:{
+			length(some){
+				return some.length;
+			},
+			reverse(str){
+				return str.split('').reverse().join('');
+			},
+			upper(str){
+				return str.toUpperCase();
+			}
 		}
 	});
 
