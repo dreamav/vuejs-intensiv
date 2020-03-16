@@ -26,16 +26,22 @@
 	</div>
 <script>
 	
-	new Vue({
-		el: '.sample',
+	let mixinUpdatesLoger = {
 		data: {
-			show: true,
 			updates: 0
 		},
 		updated(){
-			this.updates++;
+			this.updates++
 			console.log(this.updates);
 		}
+	};
+
+	new Vue({
+		el: '.sample',
+		data: {
+			show: true
+		},
+		mixins: [mixinUpdatesLoger]
 	});
 	
 	new Vue({
@@ -43,6 +49,7 @@
 		data: {
 			show: true
 		},
+		mixins: [mixinUpdatesLoger]
 	});
 
 </script>
