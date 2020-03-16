@@ -14,7 +14,9 @@
    <div class="container">
 	   <div class="sample">
 			<button class="btn btn-primary" @click="show = !show">Toggle</button>
-			<transition mode="out-in">
+			<transition enter-active-class="animated tada"
+						leave-active-class="animated bounceOutDown"
+						mode="out-in">
 				<div class="alert alert-success" v-if="show" key="success">
 					<div>Some text about some</div>
 					<div>Some text about some</div>
