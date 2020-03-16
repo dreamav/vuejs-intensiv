@@ -14,7 +14,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col col-sm-12">
-						<app-product :cnt="cnt"></app-product>
+						<app-product
+							@minus="onMinus"
+							@plus="onPlus"
+							>
+								
+						</app-product>
 					</div>
 				</div>
 			</div>
@@ -30,6 +35,16 @@
 		data(){
 			return {
 				cnt:0
+			}
+		},
+		methods:{
+			onMinus(){
+				if(this.cnt > 0){
+					this.cnt--;
+				}
+			},
+			onPlus(){
+				this.cnt++;
 			}
 		},
 		components:{
