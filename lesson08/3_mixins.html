@@ -30,7 +30,12 @@
 		el: '.sample',
 		data: {
 			show: true,
+			updates: 0
 		},
+		updated(){
+			this.updates++;
+			console.log(this.updates);
+		}
 	});
 	
 	new Vue({
