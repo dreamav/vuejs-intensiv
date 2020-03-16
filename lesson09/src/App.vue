@@ -1,35 +1,17 @@
 <template>
 	<div>
-		<header>
-			<div class="container">
-				<div class="row">
-					<div class="col col-sm-12">
-						<h1>Site</h1>
-						<app-cart :cnt="cnt"></app-cart>
-					</div>
-				</div>
-			</div>
-		</header>
-		<section>
-			<div class="container">
-				<div class="row">
-					<div class="col col-sm-12">
-						<app-product
-							@minus="onMinus"
-							@plus="onPlus"
-							>
-								
-						</app-product>
-					</div>
-				</div>
-			</div>
-		</section>
+		<app-header :cnt="cnt"></app-header>
+		<app-content 
+			@minus="onMinus"
+			@plus="onPlus"
+			>
+		</app-content>
 	</div>
 </template>
 
 <script>
-  import AppProduct from "./components/Product"
-  import AppCart from "./components/Cart"
+  import AppContent from "./components/Content"
+  import AppHeader from "./components/Header"
 
 	export default {
 		data(){
@@ -48,8 +30,8 @@
 			}
 		},
 		components:{
-			AppProduct,
-			AppCart
+			AppContent,
+			AppHeader
 		}
 
 	}
