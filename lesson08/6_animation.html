@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <link rel="stylesheet" href="css//bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/vue.js"></script>
+</head>
+<body>
+   <div class="container">
+	   <div class="sample">
+			<button class="btn btn-primary" @click="show = !show">Toggle</button>
+			<transition name="fade" appear>
+				<div class="alert alert-success" v-show="show">
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+					<div>Some text about some</div>
+				</div>
+			</transition>
+		</div>
+	</div>
+<script>
+
+	new Vue({
+		el: '.sample',
+		data: {
+			show: true
+		}
+	});
+
+</script>
+
+<style>
+	.btn{
+		margin: 10px 0;
+	}
+	/* до начала анимации */
+	.fade-enter{ 
+		opacity: 0;
+	}
+	/* после того как елемент появляется, жив все время пока есть елемент */
+	.fade-enter-active{
+		transition: opacity 0.5s;
+	}
+	/* после того как елемент появляется */
+	.fade-enter-to{
+		
+	}
+	.fade-leave{
+
+	}
+	.fade-leave-active{
+		transition: opacity 0.5s;
+	}
+	.fade-leave-to{
+		opacity: 0;
+	}
+
+	/*
+	classList.add fade-enter (op: 0)
+	classList.add fade-enter-active (transition)
+	getComputedStyle[transition-duration] -> 0.5s
+		(:duration || transition-duration || animation-duration)
+	classList.remove fade-enter (op: 1)
+	classList.add fade-enter-to 
+	setTimout(transition-duration)
+		classList.remove fade-enter-active
+		classList.remove fade-enter-to
+	*/
+
+</style>
+
+
+
+</body>
+</html>
