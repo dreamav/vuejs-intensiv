@@ -13,8 +13,8 @@ export const store = new Vuex.Store({
 				state.cnt--;
 			}
 		},
-		plus(state){
-			state.cnt++;
+		plus(state, payload){
+			state.cnt += payload;
 		}		
 	}
 });
