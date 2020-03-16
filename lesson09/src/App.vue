@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="col col-sm-12">
 						<h1>Site</h1>
-						<app-cart></app-cart>
+						<app-cart :cnt="cnt"></app-cart>
 					</div>
 				</div>
 			</div>
@@ -14,7 +14,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col col-sm-12">
-						<app-product></app-product>
+						<app-product :cnt="cnt"></app-product>
 					</div>
 				</div>
 			</div>
@@ -27,6 +27,11 @@
   import AppCart from "./components/Cart"
 
 	export default {
+		data(){
+			return {
+				cnt:0
+			}
+		},
 		components:{
 			AppProduct,
 			AppCart
