@@ -23,7 +23,7 @@
 				this.$store.commit('minus')
 			},
 			onPlus(){
-				this.$store.commit('plus', 5)
+				this.$store.commit('plus')
 			}
 		}
 	}

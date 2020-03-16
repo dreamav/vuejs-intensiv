@@ -8,7 +8,7 @@
 	export default {
 		computed:{
 			cnt(){
-				return this.$store.state.cnt;
+				return this.$store.getters.cnt;
 			}
 		}
 	}

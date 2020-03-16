@@ -7,14 +7,19 @@ export const store = new Vuex.Store({
 	state:{
 		cnt: 1,
 	},
+	getters:{
+		cnt(state){
+			return state.cnt;
+		}
+	},
 	mutations:{
 		minus(state){
 			if(state.cnt > 0){
 				state.cnt--;
 			}
 		},
-		plus(state, payload){
-			state.cnt += payload;
-		}		
+		plus(state){
+			state.cnt++;
+		}
 	}
 });
