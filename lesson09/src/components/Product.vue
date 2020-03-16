@@ -20,10 +20,12 @@
 		},
 		methods:{
 			onMinus(){
-				this.$emit('minus')
+				if(this.$store.state.cnt > 0){
+					this.$store.state.cnt--;
+				}
 			},
 			onPlus(){
-				this.$emit('plus')
+				this.$store.state.cnt++;
 			}
 		}
 	}

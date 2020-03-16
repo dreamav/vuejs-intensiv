@@ -1,11 +1,7 @@
 <template>
 	<div>
-		<app-header :cnt="cnt"></app-header>
-		<app-content 
-			@minus="onMinus"
-			@plus="onPlus"
-			>
-		</app-content>
+		<app-header></app-header>
+		<app-content></app-content>
 	</div>
 </template>
 
@@ -14,21 +10,6 @@
   import AppHeader from "./components/Header"
 
 	export default {
-		data(){
-			return {
-				cnt:0
-			}
-		},
-		methods:{
-			onMinus(){
-				if(this.cnt > 0){
-					this.cnt--;
-				}
-			},
-			onPlus(){
-				this.cnt++;
-			}
-		},
 		components:{
 			AppContent,
 			AppHeader

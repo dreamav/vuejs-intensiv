@@ -1,11 +1,15 @@
 <template>
 	<div>
-		{{ this.$store.state.cnt }}
+		{{ cnt }}
 	</div>
 </template>
 
 <script>
 	export default {
-
+		computed:{
+			cnt(){
+				return this.$store.state.cnt;
+			}
+		}
 	}
 </script>
