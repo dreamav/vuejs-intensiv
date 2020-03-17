@@ -6,6 +6,9 @@ export default {
     getters:{
         products(state){
             return state.products
+        },
+        cnt(state){
+            return state.products.length;
         }
     },
     mutations:{
