@@ -34,8 +34,20 @@ export const store = new Vuex.Store({
 		plus(state){
 			state.cnt++;
 		},
-        send(state){
+        orderSend(state){
+            state.orderState = 'pending';
+        },
+        orderDone(state){
 		    state.orderState = 'done';
         }
-	}
+	},
+    actions:{
+        sendOrder(store){
+            store.commit('orderSend');
+
+            setTimeout(()=>{
+                store.commit('orderDone')
+            }, 1000);
+        }
+    }
 });

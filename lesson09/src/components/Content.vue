@@ -12,7 +12,7 @@
 						Order now
 					</button>
 					<div class="alert alert-success"
-                         v-if="orderState == 'done'">
+                         v-if="showResult">
                          Your order is done
                      </div>
 				</div>
@@ -32,12 +32,15 @@
                 'orderState'
 			]),
 			btnDisabled(){
-				return this.cnt < 1;
-			}
+				return this.cnt < 1 || this.orderState !== null;
+			},
+            showResult(){
+                return this.orderState == 'done'
+            }
 		},
         methods:{
             onOrder(){
-                this.$store.commit('send');
+                this.$store.dispatch('sendOrder');
             }
         },
 		components:{
@@ -45,3 +48,9 @@
 		}
 	}
 </script>
+<style scoped>
+    .alert{
+        margin:10px 0px;
+    }
+
+</style>
