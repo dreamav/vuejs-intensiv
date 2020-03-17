@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 import ProductsList from "./components/ProductsList";
 import Cart from "./components/Cart";
+import E404 from "./components/E404";
 
 const routes = [
     {
@@ -14,9 +15,14 @@ const routes = [
     {
         path: '/cart',
         component: Cart
+    },
+    {
+        path: '*',
+        component: E404
     }
 ]
 
 export const router = new VueRouter({
-    routes: routes
+    routes: routes,
+    // mode: 'history'
 })
