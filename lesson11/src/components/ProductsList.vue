@@ -12,7 +12,12 @@
                     >
                     Add to cart
                 </button>
-                <button class="btn btn-warning">Remove from cart</button>
+                <button
+                    @click="removeFromCart(product.id_product)"
+                    class="btn btn-warning"
+                >
+                    Remove from cart
+                </button>
             </div>
         </div>
 	</div>
@@ -30,7 +35,8 @@
         },
         methods:{
            ...mapActions('cart',{
-                addToCart: 'add'
+                addToCart: 'add',
+                removeFromCart: 'remove'
             })
         }
 	}
