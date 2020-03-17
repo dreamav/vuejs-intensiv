@@ -26,6 +26,7 @@
 						</ul>
 					</div>
 					<div class="col col-sm-9">
+                        <router-view></router-view>
 					</div>
 				</div>
 			</div>
