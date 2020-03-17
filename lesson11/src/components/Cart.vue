@@ -6,20 +6,27 @@
              class="alert alert-warning">
             Your cart is empty
         </div>
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="product in products">
-                    <td>{{ product.title }}</td>
-                    <td>{{ product.price }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <template v-else>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="product in products">
+                        <td>{{ product.title }}</td>
+                        <td>{{ product.price }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button @click="onOrder"
+                    class="btn btn-success"
+                    >
+                Order Now
+            </button>
+        </template>
 	</div>
 </template>
 
@@ -44,7 +51,9 @@
             }
         },
         methods:{
-
+            onOrder(){
+                this.$router.push('/checkout');
+            }
         }
 	}
 </script>
