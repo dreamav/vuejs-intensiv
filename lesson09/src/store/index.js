@@ -42,8 +42,10 @@ export const store = new Vuex.Store({
         }
 	},
     actions:{
-        sendOrder(store){
+        sendOrder(store, payLoad){
             store.commit('orderSend');
+
+            console.log(payLoad);
 
             setTimeout(()=>{
                 store.commit('orderDone')
