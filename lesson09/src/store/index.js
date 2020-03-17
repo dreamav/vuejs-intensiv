@@ -8,7 +8,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
 	state:{
 		cnt: 0,
-		price: 1000
+		price: 1000,
+        orderState: null,
 	},
 	getters:{
 		cnt(state){
@@ -20,6 +21,9 @@ export const store = new Vuex.Store({
 		total(state){
 			return state.cnt * state.price;
 		},
+        orderState(state){
+          return state.orderState;
+        },
 	},
 	mutations:{
 		minus(state){
@@ -29,6 +33,9 @@ export const store = new Vuex.Store({
 		},
 		plus(state){
 			state.cnt++;
-		}
+		},
+        send(state){
+		    state.orderState = 'done';
+        }
 	}
 });

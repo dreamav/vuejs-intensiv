@@ -7,10 +7,14 @@
 					<hr>
 					<button class="btn btn-primary"
 							:disabled="btnDisabled"
+                            @click="onOrder"
 					>
 						Order now
 					</button>
-					{{ cnt }}
+					<div class="alert alert-success"
+                         v-if="orderState == 'done'">
+                         Your order is done
+                     </div>
 				</div>
 			</div>
 		</div>
@@ -24,12 +28,18 @@
 	export default {
 		computed: {
 			...mapGetters([
-				'cnt'   
+				'cnt',
+                'orderState'
 			]),
 			btnDisabled(){
 				return this.cnt < 1;
-			}	
+			}
 		},
+        methods:{
+            onOrder(){
+                this.$store.commit('send');
+            }
+        },
 		components:{
 			AppProduct
 		}
