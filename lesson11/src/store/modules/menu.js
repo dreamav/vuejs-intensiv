@@ -1,14 +1,24 @@
 export default {
-    store:{
-
+    namespaced: true,
+    state:{
+        items: [
+            {
+                url: '/products',
+                text: 'Products List'
+            },
+            {
+                url: '/cart',
+                text: 'Your Cart'
+            },
+            {
+                url: '/checkout',
+                text: 'Order now'
+            }
+        ]
     },
     getters:{
-
-    },
-    mutations:{
-
-    },
-    actions:{
-
+        items(state){
+            return state.items;
+        }
     }
 };

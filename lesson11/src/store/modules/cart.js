@@ -1,5 +1,6 @@
 export default {
-    store:{
+    namespaced: true,
+    state:{
 
     },
     getters:{

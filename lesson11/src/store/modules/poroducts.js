@@ -1,6 +1,7 @@
 export default {
-    store:{
-
+    namespaced: true,
+    state:{
+        items: []
     },
     getters:{
 
