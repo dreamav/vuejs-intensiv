@@ -1,7 +1,9 @@
+import Vue from 'vue';
+
 export default {
     namespaced: true,
     state:{
-        items: getProducts()
+        items: []
     },
     getters:{
         items(state){
@@ -21,15 +23,28 @@ export default {
             return getters.itemsMap[id];
         }
     },
-    mutations:{
-
+    mutations: {
+        clearItems(state){
+            state.items = [];
+        },
+        loadItems(state, data){
+            state.items = data;
+        }
     },
-    actions:{
+    actions: {
+         loadItems(store){
+            store.commit('clearItems')
 
+            Vue.http.get('test_for_vue.php')
+              .then(response => response.json())
+              .then(data => {
+                 store.commit('loadItems', data[0]);
+              });
+        }
     }
 };
 
-function getProducts(){
+/*function getProducts(){
     return [
         {
             id_product: 10,
@@ -47,4 +62,4 @@ function getProducts(){
             price: 30000
         }
     ]
-}
+}*/

@@ -32,11 +32,7 @@
 
 	export default {
         created(){
-            this.$http.get('test_for_vue.php')
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data)
-                })
+            this.$store.dispatch('products/loadItems');
         },
         computed:{
             ...mapGetters('products',{
