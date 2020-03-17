@@ -9,6 +9,11 @@ import E404 from "./components/E404";
 
 const routes = [
     {
+        path: '',
+        redirect: {name: 'products'}
+    },
+    {
+        name: 'products',
         path: '/products',
         component: ProductsList
     },
