@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<h1>{{ product.title }}</h1>
+        <router-link :to="{name: 'products'}">Back to products</router-link>
 		<hr>
 		<div class="alert alert-success">
             {{ product.price }}
