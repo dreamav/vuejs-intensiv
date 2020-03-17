@@ -7,7 +7,7 @@ import {router} from './routes';
 import VueResource from 'vue-resource';
 
 Vue.use(VueResource);
-Vue.http.options.root = 'http://js.dmitrylavrik.ru/api/'
+Vue.http.options.root = 'http://todobox.loc/'
 
 new Vue({
   el: '#app',

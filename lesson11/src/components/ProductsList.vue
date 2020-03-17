@@ -31,6 +31,9 @@
     import {mapActions} from "vuex";
 
 	export default {
+        created(){
+            this.$http.get('test_for_vue.php')
+        },
         computed:{
             ...mapGetters('products',{
                 products: 'items'
