@@ -7,7 +7,7 @@
 		<hr>
 		<button class="btn btn-warning" @click="minus">-1</button>
 		<button class="btn btn-success" @click="plus">+1</button>
-        <input type="text" :value="cnt" @input="onInput">
+        <input type="text" v-model:value="cnt">
 	</div>
 </template>
 
@@ -20,7 +20,15 @@
             ...mapGetters([
                 'price',
                 'cnt'
-            ])
+            ]),
+            cnt: {
+                get(){
+                    return this.$store.getters.cnt;
+                },
+                set(value){
+                    this.$store.commit('setCnt', value)
+                }
+            }
         },
         methods: {
             ...mapMutations([
@@ -28,7 +36,7 @@
                 'minus'
             ]),
             onInput(e) {
-                this.$store.commit('setCnt', e.target.value)
+                // this.$store.commit('setCnt', e.target.value)
             }
         }
     }
