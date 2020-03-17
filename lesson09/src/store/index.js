@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+// import 'core-js/features/promise';
+
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 	state:{
-		cnt: 1,
+		cnt: 0,
 		price: 1000
 	},
 	getters:{

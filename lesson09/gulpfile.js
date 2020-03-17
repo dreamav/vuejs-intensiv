@@ -26,9 +26,10 @@ let webConfig = {
         ]
     },
     mode: isDev ? 'development' : 'production',
+    devtool: isDev ? 'eval-source-map' : 'none',
     resolve: {
         extensions: ['*', '.js', '.vue', '.json']
-    },
+    }
 }
 
 function scripts() {
