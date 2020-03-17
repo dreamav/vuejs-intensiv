@@ -19,17 +19,15 @@
 			<div class="container">
 				<div class="row">
 					<div class="col col-sm-3 menu">
-                        {{ menuList }}
 						<ul class="list-group">
-                            <li class="list-group-item">Products</li>
-                            <li class="list-group-item">Cart</li>
-                            <li class="list-group-item">Checkout</li>
                             <router-link
                                 v-for="(item,index) in menuList"
                                 :key="index"
                                 :to="item.url"
+                                tag="li"
+                                class="list-group-item"
                             >
-                                {{ item.text }}
+                              <a>{{ item.text }}</a>
                             </router-link>
 						</ul>
 					</div>
