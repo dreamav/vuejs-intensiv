@@ -42,12 +42,13 @@
 </template>
 
 <script>
+    import {mapGetters} from "vuex";
 
 	export default {
         computed:{
-            menuList(){
-                return this.$store.getters['menu/items'];
-            }
+            ...mapGetters('menu',{
+                menuList: 'items'
+            }),
         }
 
 	}
