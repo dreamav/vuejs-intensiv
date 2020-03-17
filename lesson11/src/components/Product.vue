@@ -1,11 +1,11 @@
 <template>
 	<div>
-		<h1>Product</h1>
+		<h1>{{ product.title }}</h1>
 		<hr>
 		<div class="alert alert-success">
-
+            {{ product.price }}
 		</div>
-        {{ id }}
+
 	</div>
 </template>
 
@@ -15,6 +15,9 @@
             id(){
                 return this.$route.params.id;
             },
+            product(){
+                return this.$store.getters['products/item'](this.id);
+            }
         }
 	}
 </script>
