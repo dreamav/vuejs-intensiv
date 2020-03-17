@@ -24,6 +24,13 @@
                             <li class="list-group-item">Products</li>
                             <li class="list-group-item">Cart</li>
                             <li class="list-group-item">Checkout</li>
+                            <router-link
+                                v-for="(item,index) in menuList"
+                                :key="index"
+                                :to="item.url"
+                            >
+                                {{ item.text }}
+                            </router-link>
 						</ul>
 					</div>
 					<div class="col col-sm-9">
