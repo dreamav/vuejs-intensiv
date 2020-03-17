@@ -39,6 +39,13 @@ export const store = new Vuex.Store({
         },
         orderDone(state){
 		    state.orderState = 'done';
+        },
+        setCnt(state, count){
+            if(count < 0){
+                count = 0
+            }
+
+            state.cnt = count;
         }
 	},
     actions:{

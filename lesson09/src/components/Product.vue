@@ -7,23 +7,29 @@
 		<hr>
 		<button class="btn btn-warning" @click="minus">-1</button>
 		<button class="btn btn-success" @click="plus">+1</button>
+        <input type="text" :value="cnt" @input="onInput">
 	</div>
 </template>
 
 <script>
+  import {mapGetters} from "vuex";
   import {mapMutations} from "vuex";
 
 	export default {
-		data(){
-			return {
-				cnt: 0,
-			}
-		},
-		methods:{
-			...mapMutations([
-        'plus',
-        'minus'
-      ]),
-		}
-	}
+		computed:{
+            ...mapGetters([
+                'price',
+                'cnt'
+            ])
+        },
+        methods: {
+            ...mapMutations([
+                'plus',
+                'minus'
+            ]),
+            onInput(e) {
+                this.$store.commit('setCnt', e.target.value)
+            }
+        }
+    }
 </script>
