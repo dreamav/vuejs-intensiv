@@ -3,7 +3,15 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
+import menu from "./modules/menu";
+import products from "./modules/poroducts";
+import cart from "./modules/cart";
 
+export const store = new Vuex.Store({
+    modules:{
+        menu,
+        cart,
+        products
+    },
     strict: process.env.NODE_ENV !== 'production'
 });
