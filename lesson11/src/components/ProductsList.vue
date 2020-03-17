@@ -7,7 +7,11 @@
             >
                 <h3>{{ product.title }}</h3>
                 <div>{{ product.price }}</div>
-                <button class="btn btn-primary">Add to cart</button>
+                <button class="btn btn-primary"
+                        @click="addToCart(product.id_product)"
+                    >
+                    Add to cart
+                </button>
                 <button class="btn btn-warning">Remove from cart</button>
             </div>
         </div>
@@ -16,11 +20,17 @@
 
 <script>
     import {mapGetters} from "vuex";
+    import {mapActions} from "vuex";
 
 	export default {
         computed:{
             ...mapGetters('products',{
                 products: 'items'
+            })
+        },
+        methods:{
+           ...mapActions('cart',{
+                addToCart: 'add'
             })
         }
 	}
