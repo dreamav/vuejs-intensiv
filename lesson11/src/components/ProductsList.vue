@@ -33,6 +33,10 @@
 	export default {
         created(){
             this.$http.get('test_for_vue.php')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                })
         },
         computed:{
             ...mapGetters('products',{
