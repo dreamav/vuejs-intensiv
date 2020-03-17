@@ -8,6 +8,8 @@ import Product from './components/Product';
 import Cart from "./components/Cart";
 import E404 from "./components/E404";
 
+import {store} from './store';
+
 const routes = [
     {
         path: '',
@@ -16,7 +18,11 @@ const routes = [
     {
         name: 'products',
         path: '/products',
-        component: ProductsList
+        component: ProductsList,
+        beforeEnter(from, to, next){
+            store.dispatch('products/loadItems');
+            next();
+        }
     },
     {
         path: '/products/:id',

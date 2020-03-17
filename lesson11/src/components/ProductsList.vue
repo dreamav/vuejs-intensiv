@@ -32,7 +32,8 @@
 
 	export default {
         created(){
-            this.$store.dispatch('products/loadItems');
+            console.log(1);
+            //this.$store.dispatch('products/loadItems');
         },
         computed:{
             ...mapGetters('products',{
