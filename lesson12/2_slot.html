@@ -15,8 +15,9 @@
     <div class="wrapper">
         <div class="sample">
             <app-notice>
-                <p>Attention Message</p>
+                <h2 slot="header">Attention Message</h2>
                 <p>{{ text }}</p>
+                <button class="btn btn-primary">1</button>
             </app-notice>
         </div>
     </div>
@@ -24,6 +25,8 @@
         Vue.component('app-notice', {
             template: `
                 <div class="alert alert-warning">
+                    <slot name="header"></slot>
+                    <hr>
                     <slot>Default text</slot>
                 </div>
             `
