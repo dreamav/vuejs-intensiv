@@ -39,7 +39,12 @@ export default {
               .then(response => response.json())
               .then(data => {
                  store.commit('loadItems', data[0]);
-              });
+              })
+              .catch(
+                err => {
+
+                }
+              );
         }
     }
 };
