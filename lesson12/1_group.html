@@ -16,10 +16,12 @@
                     <label>Guests</label>
                     <input type="button" class="btn btn-primary" value="+" @click="addGuest">
                 </div>
-                <div class="form-group" v-for="(name, key, index) in guests" :key="key">
-                    <label @dblclick="deleteGuest(key)">Guest {{ index + 1 }}</label>
-                    <input type="text" class="form-control" @input="onInput(key, $event)">
-                </div>
+                <transition-group name="fade" tag="div">
+                    <div class="form-group" v-for="(name, key, index) in guests" :key="key">
+                        <label @dblclick="deleteGuest(key)">Guest {{ index + 1 }}</label>
+                        <input type="text" class="form-control" @input="onInput(key, $event)">
+                    </div>
+                </transition-group>
                 <hr>
                 <button class="btn btn-success">Send Data</button>
             </form>
@@ -62,5 +64,42 @@
             }
         });
     </script>
+
+
+    <style>
+        .fade-enter{
+        
+        }
+
+        .fade-enter-active{
+            animation: slideIn 0.5s;    
+        }
+
+        .fade-enter-to{
+            
+        }
+
+        .fade-leave{
+            
+        }
+
+        .fade-leave-active{
+            animation: slideOut 0.5s forwards;
+        }
+
+        .fade-leave-to{
+            
+        }
+
+        @keyframes slideIn{
+            from{transform: translateX(-100vw);}
+            to{transform: translateX(0px);}
+        }
+
+        @keyframes slideOut{
+            from{transform: translateX(0px);}
+            to{transform: translateX(-100vw);}
+        }
+    </style>    
 </body>
 </html>
