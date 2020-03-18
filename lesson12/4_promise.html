@@ -7,24 +7,26 @@
     </head>
     <body>
         <script>
-			userReg(
+			userReg().then(
 				(res) => {
-					console.log(res);
-				}, 
+					console.log(res)
+				},
 				(err) => {
-					console.log(err);
+					console.log(err)
 				}
 			);
 
-			function userReg(success, error){
-				setTimeout(function(){
-					if(Math.random() > 0.2){
-						success("+ registration");
-					}
-					else{
-						error("- registration");
-					}
-				}, 500);
+			function userReg(){
+				return new Promise(function(resolve,reject){
+					setTimeout(function(){
+						if(Math.random() > 0.2){
+							resolve("+ registration");
+						}
+						else{
+							reject("- registration");
+						}
+					}, 500);
+				});
 			}
 
 		</script>
