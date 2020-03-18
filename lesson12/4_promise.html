@@ -9,7 +9,15 @@
         <script>
 			userReg().then(
 				(res) => {
-					console.log(res)
+					console.log(res);
+					return userAuth(); // new Promise
+				},
+				(err) => {
+					console.log(err)
+				}
+			).then(
+				(res) => {
+					console.log(res);
 				},
 				(err) => {
 					console.log(err)
@@ -24,6 +32,19 @@
 						}
 						else{
 							reject("- registration");
+						}
+					}, 500);
+				});
+			}
+
+			function userAuth(){
+				return new Promise(function(resolve,reject){
+					setTimeout(function(){
+						if(Math.random() > 0.2){
+							resolve("+ auth");
+						}
+						else{
+							reject("- auth");
 						}
 					}, 500);
 				});
