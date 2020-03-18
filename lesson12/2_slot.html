@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sample">
+            <app-notice>
+                
+            </app-notice>
+        </div>
+    </div>
+    <script>
+        Vue.component('app-notice', {
+            template: `
+                <div class="alert alert-warning">
+                    <slot></slot>
+                </div>
+            `
+        });
+
+        new Vue({
+            el: '.sample',
+            data: {
+                text: 'some'
+            }
+        });
+    </script>
+</body>
+</html>
