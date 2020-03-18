@@ -7,27 +7,22 @@
     </head>
     <body>
         <script>
-			userReg().then(
-				(res) => {
+			userReg().then((res) => {
 					console.log(res);
 					return userAuth(); // new Promise
-				},
-				(err) => {
-					console.log(err)
-				}
-			).then(
-				(res) => {
+				}).then((res) => {
 					console.log(res);
-				},
-				(err) => {
-					console.log(err)
-				}
-			);
+					return getUserData()
+				}).then((res) => {
+					console.log(res);
+				}).catch((err)=>{
+					console.log(err);
+				})
 
 			function userReg(){
 				return new Promise(function(resolve,reject){
 					setTimeout(function(){
-						if(Math.random() > 0.2){
+						if(Math.random() > 0.6){
 							resolve("+ registration");
 						}
 						else{
@@ -40,11 +35,24 @@
 			function userAuth(){
 				return new Promise(function(resolve,reject){
 					setTimeout(function(){
-						if(Math.random() > 0.2){
+						if(Math.random() > 0.6){
 							resolve("+ auth");
 						}
 						else{
 							reject("- auth");
+						}
+					}, 500);
+				});
+			}
+
+			function getUserData(){
+				return new Promise(function(resolve,reject){
+					setTimeout(function(){
+						if(Math.random() > 0.2){
+							resolve("+ data");
+						}
+						else{
+							reject("- data");
 						}
 					}, 500);
 				});
