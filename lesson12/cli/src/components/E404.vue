@@ -4,8 +4,8 @@
 		<hr>
         <router-link :to="{name: 'products'}">Start from start page</router-link>
         <hr>
-        <p class="some">Some Text</p>
-        <p class="other">Other Text</p>
+        <p :class="colors.red">Some Text</p>
+        <p :class="colors.green">Other Text</p>
 	</div>
 </template>
 
@@ -15,12 +15,12 @@
 	}
 </script>
 
-<style scoped>
+<style module="colors">
 
-    .some{
+    .red{
         color: red;
     }
-    .other{
+    .green{
         color: green;
     }
 
